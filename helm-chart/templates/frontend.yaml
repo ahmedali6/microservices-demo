@@ -106,6 +106,9 @@ spec:
             value: {{ .Values.frontend.cymbalBranding | quote }}
           - name: ENABLE_SINGLE_SHARED_SESSION
             value: {{ .Values.frontend.singleSharedSession | quote }}
+        {{- if .Values.extraEnvVars }}
+        {{- toYaml .Values.extraEnvVars | nindent 8 }}
+        {{- end }}
           resources:
             {{- toYaml .Values.frontend.resources | nindent 12 }}
 ---

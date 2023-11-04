@@ -195,3 +195,6 @@ cartDatabase:
     endpointAddress: ""
     endpointPort: ""
     certificate: ""
+extraEnvVars:
+- name: extra_var
+  value: "Hello"

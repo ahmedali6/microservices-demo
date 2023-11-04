@@ -71,6 +71,9 @@ spec:
         {{- end }}
         - name: EXTRA_LATENCY
           value: {{ .Values.productCatalogService.extraLatency }}
+        {{- if .Values.extraEnvVars }}
+        {{- toYaml .Values.extraEnvVars | nindent 8 }}
+        {{- end }}
         readinessProbe:
           grpc:
             port: 3550

@@ -56,6 +56,9 @@ spec:
         env:
         - name: PORT
           value: "50051"
+        {{- if .Values.extraEnvVars }}
+        {{- toYaml .Values.extraEnvVars | nindent 8 }}
+        {{- end }}
         {{- if not .Values.googleCloudOperations.profiler }}
         - name: DISABLE_PROFILER
           value: "1"

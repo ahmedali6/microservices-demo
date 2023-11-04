@@ -69,6 +69,9 @@ spec:
         - name: DISABLE_PROFILER
           value: "1"
         {{- end }}
+        {{- if .Values.extraEnvVars }}
+        {{- toYaml .Values.extraEnvVars | nindent 8 }}
+        {{- end }}
         readinessProbe:
           periodSeconds: 5
           grpc:
